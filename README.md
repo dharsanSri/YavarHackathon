@@ -62,6 +62,11 @@ project-root/
     python main.py
   ```
 
+5. **Go through the ppt for complete understanding:**
+   ``` bash
+       Invoice Data Extraction and  verification from scanned pdf available in the repository
+   ```
+
 
 
 
