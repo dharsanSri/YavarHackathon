@@ -21,7 +21,6 @@ def extract_invoice_fields(full_text, all_ocr_data):
             text_lower = ocr_text.lower()
             for keyword in labels:
                 if keyword in text_lower:
-                    # Try to extract after colon/hyphen from original case text
                     match = re.search(rf"{keyword}[:\-]?\s*(.+)", ocr_text, re.IGNORECASE)
                     if match:
                         value = match.group(1).strip()
@@ -30,14 +29,12 @@ def extract_invoice_fields(full_text, all_ocr_data):
                     else:
                         value = ""
 
-                    # Post-processing for common issues
                     if field == "shipping_address":
-                        # Attempt to merge 2–3 lines for address
                         value_lines = [value]
                         for offset in range(1, 3):
                             if idx + offset < len(flat_texts):
                                 next_line = flat_texts[idx + offset][0].strip()
-                                if len(next_line.split()) > 1:  # avoid adding junk
+                                if len(next_line.split()) > 1:
                                     value_lines.append(next_line)
                         value = ", ".join(value_lines)
 
@@ -62,11 +59,6 @@ def extract_table(all_ocr_data):
     for page_data in all_ocr_data:
         flat_lines.extend(page_data['text'])
 
-    print("\n[DEBUG] OCR Lines:")
-    for line in flat_lines:
-        print(line.strip())
-
-    # Expected header lines in order (as per your OCR)
     expected_headers = [
         "no_items",
         "description",
@@ -77,20 +69,16 @@ def extract_table(all_ocr_data):
         "serial_number"
     ]
 
-    # Find where these headers occur sequentially in flat_lines
     start_index = -1
     for i in range(len(flat_lines) - len(expected_headers) + 1):
         segment = [flat_lines[i + j].strip().lower() for j in range(len(expected_headers))]
         if segment == expected_headers:
             start_index = i
-            print(f"[DEBUG] Detected table header starting at line {start_index}")
             break
 
     if start_index == -1:
-        print("[ERROR] Table header not found. No line items will be extracted.")
         return []
 
-    # Now extract rows after the header lines, each row is 7 lines
     current_row = []
     for line in flat_lines[start_index + len(expected_headers):]:
         line_clean = line.strip()
@@ -99,18 +87,15 @@ def extract_table(all_ocr_data):
         current_row.append(line_clean)
         if len(current_row) == 7:
             row = {
-                "serial_number": current_row[0],  # "no_items"
+                "serial_number": current_row[0],
                 "description": current_row[1],
                 "hsn_sac": current_row[2],
                 "quantity": current_row[3],
                 "unit_price": current_row[4],
                 "total": current_row[5],
-                "extra_serial_number": current_row[6]  # the last serial_number field from OCR
+                "extra_serial_number": current_row[6]
             }
             table.append(row)
-            print("[DEBUG] Parsed row:", row)
             current_row = []
 
-    print(f"[INFO] Total rows extracted: {len(table)}")
     return table
-

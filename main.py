@@ -1,4 +1,3 @@
-# main.py
 import os
 from pdf2image import convert_from_path
 from ocr_utils import preprocess_image, extract_text
@@ -11,17 +10,13 @@ INPUT_DIR = 'input'
 OUTPUT_DIR = 'output'
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-
-# Change current working directory to OUTPUT_DIR
 os.chdir(OUTPUT_DIR)
 
-# Now all paths below are relative to OUTPUT_DIR
 for file in os.listdir(os.path.join('..', INPUT_DIR)):
     if file.lower().endswith('.pdf'):
         pdf_path = os.path.join('..', INPUT_DIR, file)
         pdf_name = os.path.splitext(file)[0]
 
-        # Create subfolder for this PDF inside OUTPUT_DIR
         invoice_output_dir = pdf_name
         os.makedirs(invoice_output_dir, exist_ok=True)
 
@@ -49,7 +44,6 @@ for file in os.listdir(os.path.join('..', INPUT_DIR)):
 
         verification_report = verify_invoice_data(invoice_data)
 
-        # Save all outputs into that invoice's folder
         save_as_json(invoice_data, os.path.join(invoice_output_dir, 'extracted_data.json'))
         save_as_excel(invoice_data, os.path.join(invoice_output_dir, 'extracted_data.xlsx'))
         save_as_json(verification_report, os.path.join(invoice_output_dir, 'verifiability_report.json'))

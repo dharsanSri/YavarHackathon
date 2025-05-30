@@ -1,8 +1,7 @@
 from paddleocr import PaddleOCR
 import numpy as np
 
-# Remove use_gpu parameter because it's not recognized anymore
-ocr = PaddleOCR(use_angle_cls=True, lang='en')  # Use GPU automatically if available
+ocr = PaddleOCR(use_angle_cls=True, lang='en')
 
 def preprocess_image(pil_img):
     return np.array(pil_img)

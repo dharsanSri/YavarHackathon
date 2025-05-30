@@ -20,9 +20,6 @@ def verify_invoice_data(data):
         }
     }
 
-    # --------------------------
-    # 1. Field Verification
-    # --------------------------
     key_fields = [
         "invoice_number", "invoice_date", "supplier_gst_number",
         "bill_to_gst_number", "po_number", "shipping_address"
@@ -49,9 +46,6 @@ def verify_invoice_data(data):
             "present": bool(data["seal_and_sign_present"])
         }
 
-    # --------------------------
-    # 2. Line Item Verification
-    # --------------------------
     line_items = data.get("line_items", [])
     calculated_subtotal = 0.0
 
@@ -85,16 +79,12 @@ def verify_invoice_data(data):
                 }
             }
 
-
             report["line_items_verification"].append(line_report)
 
         except Exception as e:
             report["summary"]["all_line_items_verified"] = False
             report["summary"]["issues"].append(f"Error in line item {idx + 1}: {str(e)}")
 
-    # --------------------------
-    # 3. Total Verification
-    # --------------------------
     try:
         extracted_subtotal = safe_float(data.get("subtotal", {}).get("value", calculated_subtotal))
         discount = safe_float(data.get("discount", {}).get("value", 0))
