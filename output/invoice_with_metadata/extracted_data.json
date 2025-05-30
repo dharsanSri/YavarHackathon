@@ -1,0 +1,165 @@
+{
+  "invoice_number": {
+    "value": "INV-1001",
+    "confidence": 0.99
+  },
+  "invoice_date": {
+    "value": "2025-05-29",
+    "confidence": 1.0
+  },
+  "supplier_gst_number": {
+    "value": "Number: 29ABCDE1234F2Z5",
+    "confidence": 0.99
+  },
+  "bill_to_gst_number": {
+    "value": "Number: 07AAAPL1234C1ZV",
+    "confidence": 0.97
+  },
+  "po_number": {
+    "value": "PO-2034",
+    "confidence": 0.98
+  },
+  "shipping_address": {
+    "value": "123 Tech Avenue,, Innovation Hub,, Bangalore, Karnataka, 560001",
+    "confidence": 1.0
+  },
+  "line_items": [
+    {
+      "serial_number": "1",
+      "description": "USB Hub",
+      "hsn_sac": "8471",
+      "quantity": "2",
+      "unit_price": "450.00",
+      "total": "900.00",
+      "extra_serial_number": "SN000111"
+    },
+    {
+      "serial_number": "2",
+      "description": "Wireless Charger",
+      "hsn_sac": "8504",
+      "quantity": "1",
+      "unit_price": "1200.00",
+      "total": "1200.00",
+      "extra_serial_number": "SN000222"
+    },
+    {
+      "serial_number": "3",
+      "description": "Mechanical Mouse",
+      "hsn_sac": "8471",
+      "quantity": "3",
+      "unit_price": "300.00",
+      "total": "900.00",
+      "extra_serial_number": "SN000333"
+    },
+    {
+      "serial_number": "4",
+      "description": "Power Adapter",
+      "hsn_sac": "8504",
+      "quantity": "2",
+      "unit_price": "650.00",
+      "total": "1300.00",
+      "extra_serial_number": "SN000444"
+    },
+    {
+      "serial_number": "5",
+      "description": "Ethernet Cable",
+      "hsn_sac": "8544",
+      "quantity": "5",
+      "unit_price": "120.00",
+      "total": "600.00",
+      "extra_serial_number": "SN000555"
+    },
+    {
+      "serial_number": "6",
+      "description": "Desk Lamp",
+      "hsn_sac": "9405",
+      "quantity": "1",
+      "unit_price": "2100.00",
+      "total": "2100.00",
+      "extra_serial_number": "SN000666"
+    },
+    {
+      "serial_number": "L",
+      "description": "Web Camera",
+      "hsn_sac": "8525",
+      "quantity": "2",
+      "unit_price": "950.00",
+      "total": "1900.00",
+      "extra_serial_number": "SN000777"
+    },
+    {
+      "serial_number": "8",
+      "description": "Bluetooth Speaker",
+      "hsn_sac": "8518",
+      "quantity": "1",
+      "unit_price": "1450.00",
+      "total": "1450.00",
+      "extra_serial_number": "SN000888"
+    },
+    {
+      "serial_number": "6",
+      "description": "Laptop Stand",
+      "hsn_sac": "9403",
+      "quantity": "1",
+      "unit_price": "1850.00",
+      "total": "1850.00",
+      "extra_serial_number": "SN000999"
+    },
+    {
+      "serial_number": "10",
+      "description": "Surge Protector",
+      "hsn_sac": "8536",
+      "quantity": "2",
+      "unit_price": "350.00",
+      "total": "700.00",
+      "extra_serial_number": "SN001000"
+    },
+    {
+      "serial_number": "11",
+      "description": "HDMI Splitter",
+      "hsn_sac": "8544",
+      "quantity": "1",
+      "unit_price": "480.00",
+      "total": "480.00",
+      "extra_serial_number": "SN001111"
+    },
+    {
+      "serial_number": "12",
+      "description": "Docking Station",
+      "hsn_sac": "8471",
+      "quantity": "1",
+      "unit_price": "2800.00",
+      "total": "2800.00",
+      "extra_serial_number": "SN001222"
+    },
+    {
+      "serial_number": "13",
+      "description": "USB Flash Drive",
+      "hsn_sac": "8523",
+      "quantity": "4",
+      "unit_price": "250.00",
+      "total": "1000.00",
+      "extra_serial_number": "SN001333"
+    },
+    {
+      "serial_number": "14",
+      "description": "Cooling Pad",
+      "hsn_sac": "8473",
+      "quantity": "1",
+      "unit_price": "850.00",
+      "total": "850.00",
+      "extra_serial_number": "SN001444"
+    },
+    {
+      "serial_number": "15",
+      "description": "Network Switch",
+      "hsn_sac": "8517",
+      "quantity": "1",
+      "unit_price": "3100.00",
+      "total": "3100.00",
+      "extra_serial_number": "SN001555"
+    }
+  ],
+  "seal_and_sign_present": true,
+  "seal_image_path": "invoice_with_metadata\\invoice_with_metadata_seal.png"
+}

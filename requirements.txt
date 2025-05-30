@@ -1,0 +1,9 @@
+opencv-python
+pytesseract
+pdf2image
+Pillow
+pandas
+openpyxl
+numpy
+paddleocr
+paddlepaddle
